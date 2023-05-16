@@ -36,7 +36,6 @@ class ViewPlaceActivity : AppCompatActivity() {
     private lateinit var tvVersion: TextView
 
 
-
     private lateinit var roomViewModel: RoomViewModel
 
     private val imageListAdapter by lazy { ImageAdapter() }
@@ -79,6 +78,7 @@ class ViewPlaceActivity : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     }
+
                     R.id.action_delete -> {
                         //alert dialog
                         val builder = android.app.AlertDialog.Builder(this)
@@ -103,8 +103,8 @@ class ViewPlaceActivity : AppCompatActivity() {
         rvPlaceImage.layoutManager = LinearLayoutManager(this)
 
         roomViewModel.getPlaceById(placeId)
-        roomViewModel.getPlaceByIdData.observe(this){
-            if (it != null){
+        roomViewModel.getPlaceByIdData.observe(this) {
+            if (it != null) {
                 Log.d(TAG, "onCreate: $it")
                 tvPlaceName.text = it.placeName
                 tvPlaceDate.text = it.date
@@ -113,14 +113,17 @@ class ViewPlaceActivity : AppCompatActivity() {
                 chipCategory.text = it.category
                 tvPlaceRating.text = "Rating (${it.rating} Out of 5.0)"
                 ratingBar.rating = it.rating.toFloat()
-
-                val imageList = it.imageList.replace("[", "").replace("]", "").split(",")
-                val bitmap = ArrayList<Bitmap>()
-                for (i in imageList){
-                    Log.d(TAG, "onCreate: $i")
-                    bitmap.add(ImageBitmapString().StringToBitMap(i)!!)
+                Log.d(TAG, "onCreate Len: ${it.imageList}")
+                if (it.imageList.length>2) {
+                    val imageList = it.imageList.replace("[", "").replace("]", "").split(",")
+                    Log.d(TAG, "onCreate: $imageList")
+                    val bitmap = ArrayList<Bitmap>()
+                    for (i in imageList) {
+                        Log.d(TAG, "onCreate: $i")
+                        bitmap.add(ImageBitmapString().StringToBitMap(i)!!)
+                    }
+                    imageListAdapter.setImageListData(bitmap)
                 }
-                imageListAdapter.setImageListData(bitmap)
             }
         }
     }

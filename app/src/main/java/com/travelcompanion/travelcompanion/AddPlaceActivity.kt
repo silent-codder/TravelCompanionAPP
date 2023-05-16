@@ -215,6 +215,11 @@ class AddPlaceActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if (imageList.isEmpty()){
+                Toast.makeText(this, "Please add at least one image", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val place = PlaceData(
                 placeName = placeName,
                 description = description,
