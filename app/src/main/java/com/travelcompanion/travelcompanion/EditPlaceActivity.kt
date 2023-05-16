@@ -105,13 +105,16 @@ class EditPlaceActivity : AppCompatActivity() {
                 tvPlaceRating.text = "Rating (${it.rating} Out of 5.0)"
                 ratingBar.rating = it.rating.toFloat()
 
-                val imgList = it.imageList.replace("[", "").replace("]", "").split(",")
-                val bitmap = ArrayList<Bitmap>()
-                for (i in imgList){
-                    Log.d(ContentValues.TAG, "onCreate: $i")
-                    bitmap.add(ImageBitmapString().StringToBitMap(i)!!)
+                if (it.imageList.length>2) {
+                    val imageList = it.imageList.replace("[", "").replace("]", "").split(",")
+                    Log.d(ContentValues.TAG, "onCreate: $imageList")
+                    val bitmap = ArrayList<Bitmap>()
+                    for (i in imageList) {
+                        Log.d(ContentValues.TAG, "onCreate: $i")
+                        bitmap.add(ImageBitmapString().StringToBitMap(i)!!)
+                    }
+                    imageListAdapter.setImageListData(bitmap)
                 }
-                imageListAdapter.setImageListData(bitmap)
 
             }
         }
@@ -231,7 +234,7 @@ class EditPlaceActivity : AppCompatActivity() {
             )
 
             Log.d(ContentValues.TAG, "onCreate: $place")
-            roomViewModel.updatePlaceData(placeId, placeName, description, date, category, notes, gps, rating)
+            roomViewModel.updatePlaceData(placeId, placeName, description, date, category, gps, notes, rating)
             Toast.makeText(this, "Place update successfully", Toast.LENGTH_SHORT).show()
 
             startActivity(Intent(this, MainActivity::class.java))

@@ -34,6 +34,7 @@ class ViewPlaceActivity : AppCompatActivity() {
     private lateinit var ratingBar: RatingBar
     private lateinit var rvPlaceImage: RecyclerView
     private lateinit var tvVersion: TextView
+    private lateinit var tvGpsLocation: TextView
 
 
     private lateinit var roomViewModel: RoomViewModel
@@ -60,6 +61,7 @@ class ViewPlaceActivity : AppCompatActivity() {
         ivBtnMore = findViewById(R.id.ivBtnMore)
         ivBtnBack = findViewById(R.id.ivBtnBack)
         tvVersion = findViewById(R.id.version)
+        tvGpsLocation = findViewById(R.id.tvGpsLocation)
 
         tvVersion.text = "Version : ${BuildConfig.VERSION_NAME}"
 
@@ -113,6 +115,7 @@ class ViewPlaceActivity : AppCompatActivity() {
                 chipCategory.text = it.category
                 tvPlaceRating.text = "Rating (${it.rating} Out of 5.0)"
                 ratingBar.rating = it.rating.toFloat()
+                tvGpsLocation.text = "Loaction : ${it.gpsLocation}"
                 Log.d(TAG, "onCreate Len: ${it.imageList}")
                 if (it.imageList.length>2) {
                     val imageList = it.imageList.replace("[", "").replace("]", "").split(",")

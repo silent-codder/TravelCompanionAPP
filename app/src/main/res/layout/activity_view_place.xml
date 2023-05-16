@@ -105,9 +105,19 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="Date" />
 
+                <TextView
+                    android:id="@+id/tvGpsLocation"
+                    android:layout_below="@id/tvPlaceName"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location"/>
+
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipCategory"
                     android:layout_below="@id/tvPlaceName"
+                    android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAllCaps="true"
