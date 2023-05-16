@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Travel Companion</string>
+    <string-array name="category">
+        <item>Food</item>
+        <item>Transport</item>
+        <item>Accommodation</item>
+        <item>Entertainment</item>
+        <item>Others</item>
+    </string-array>
+</resources>

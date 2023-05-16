@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvPlaceList"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="4dp"
+    app:cardElevation="2dp">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:padding="10dp">
+
+       <TextView
+           android:id="@+id/tvPlaceName"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:maxLength="50"
+           android:text="Place Name"
+           android:textColor="@color/black"
+           android:textStyle="bold"
+           android:textSize="20sp"
+           android:fontFamily="@font/poppins"
+           tools:ignore="HardcodedText" />
+
+       <TextView
+           android:id="@+id/tvPlaceDate"
+           android:layout_width="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_height="wrap_content"
+           android:fontFamily="@font/poppins_medium"
+           android:text="Date"/>
+
+       <TextView
+           android:id="@+id/tvPlaceDescription"
+           android:layout_width="match_parent"
+           android:layout_height="30dp"
+           android:singleLine="true"
+           android:layout_below="@id/tvPlaceName"
+           android:text="Place Description"
+           android:textColor="@color/dark_gray"
+           android:textSize="16sp"
+           android:fontFamily="@font/poppins_medium"
+           tools:ignore="HardcodedText" />
+
+   </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

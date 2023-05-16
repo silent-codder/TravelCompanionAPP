@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddPlaceActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        app:titleTextColor="@color/black"
+        android:outlineSpotShadowColor="@color/black"
+        android:elevation="2dp">
+
+        <RelativeLayout
+            android:id="@+id/rlToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivBtnBack"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:src="@drawable/baseline_arrow_back_24" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/ivBtnBack">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:text="Add Place Details"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvTitle"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="version "
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPlaceName"
+                style="?attr/textInputFilledStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                app:boxBackgroundColor="@color/gray"
+                android:hint="Place Name"
+                app:endIconMode="clear_text"
+                tools:ignore="HardcodedText">
+
+                <EditText
+                    android:id="@+id/etPlaceName"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:importantForAutofill="no"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDescription"
+                style="?attr/textInputFilledStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                app:boxBackgroundColor="@color/gray"
+                app:counterEnabled="true"
+                app:counterMaxLength="50"
+                android:hint="Description"
+                app:endIconMode="clear_text"
+                tools:ignore="HardcodedText">
+
+                <EditText
+                    android:id="@+id/etDescription"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:importantForAutofill="no"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?attr/textInputFilledStyle"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="20dp"
+                android:fontFamily="@font/poppins_medium"
+                app:endIconDrawable="@drawable/baseline_calendar_month_24"
+                app:endIconMode="custom"
+                app:boxBackgroundColor="@color/gray"
+                app:hintTextColor="@color/black"
+                app:endIconTint="@color/black">
+
+                <EditText
+                    android:id="@+id/etDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:hint="Select Date"
+                    android:inputType="date"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCategoryDropdown"
+                android:layout_marginTop="10dp"
+                style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:paddingHorizontal="20dp"
+                app:boxBackgroundColor="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/actCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:hint="Select Category"
+                    app:simpleItems="@array/category" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNotes"
+                style="?attr/textInputFilledStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                app:boxBackgroundColor="@color/gray"
+                app:counterEnabled="true"
+                app:counterMaxLength="1000"
+                android:hint="Notes"
+                app:endIconMode="clear_text"
+                tools:ignore="HardcodedText">
+
+                <EditText
+                    android:id="@+id/etNotes"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine|textCapWords"
+                    android:importantForAutofill="no"
+                    android:maxLines="100"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilGPS"
+                style="?attr/textInputFilledStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                app:boxBackgroundColor="@color/gray"
+                android:hint="GPS Location"
+                app:endIconMode="clear_text"
+                tools:ignore="HardcodedText">
+
+                <EditText
+                    android:id="@+id/etGPS"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:importantForAutofill="no"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRating"
+                style="?attr/textInputFilledStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                app:boxBackgroundColor="@color/gray"
+                tools:ignore="HardcodedText">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Rating (out of 5)"/>
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+                android:id="@+id/btnAddPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="20dp"
+                app:icon="@drawable/baseline_add_24"
+                android:drawableTint="@color/black"
+                android:backgroundTint="@color/grey"
+                android:text="Add Photos"
+                tools:ignore="HardcodedText" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/rvPhotos"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/btnSubmit"
+                android:text="Submit"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_medium"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
